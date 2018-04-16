@@ -1,4 +1,4 @@
-<% if (requiresAuth) { %>const { authenticate } = require('@feathersjs/authentication').hooks;<% } %>
+<% if (requiresAuth) { %>const { authenticate } = require('@feathersjs/authentication').hooks<% } %>
 
 module.exports = {
   before: {
@@ -30,4 +30,4 @@ module.exports = {
     patch: [],
     remove: []
   }
-};
+}

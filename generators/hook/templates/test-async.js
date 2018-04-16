@@ -1,27 +1,27 @@
-const assert = require('assert');
-const feathers = require('@feathersjs/feathers');
-const <%= camelName %> = require('../../<%= libDirectory %>/hooks/<%= kebabName %>');
+const assert = require('assert')
+const feathers = require('@feathersjs/feathers')
+const <%= camelName %> = require('../../<%= libDirectory %>/hooks/<%= kebabName %>')
 
 describe('\'<%= name %>\' hook', () => {
-  let app;
+  let app
 
   beforeEach(() => {
-    app = feathers();
+    app = feathers()
 
     app.use('/dummy', {
       async get(id) {
-        return { id };
+        return { id }
       }
-    });
+    })
 
     app.service('dummy').hooks({
       <% if(type){ %><%= type %>: <%= camelName %>()<% } %>
-    });
-  });
+    })
+  })
 
   it('runs the hook', async () => {
-    const result = await app.service('dummy').get('test');
+    const result = await app.service('dummy').get('test')
     
-    assert.deepEqual(result, { id: 'test' });
-  });
-});
+    assert.deepEqual(result, { id: 'test' })
+  })
+})

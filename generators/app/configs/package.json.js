@@ -1,10 +1,10 @@
-const semver = require('semver');
+const semver = require('semver')
 
-module.exports = function(generator) {
-  const major = semver.major(process.version);
-  const { props } = generator;
-  const lib = props.src;
-  const [ packager, version ] = props.packager.split('@');
+module.exports = function (generator) {
+  const major = semver.major(process.version)
+  const { props } = generator
+  const lib = props.src
+  const [ packager, version ] = props.packager.split('@')
   const pkg = {
     name: props.name,
     description: props.description,
@@ -34,7 +34,7 @@ module.exports = function(generator) {
       start: `node ${lib}/`,
       mocha: 'mocha test/ --recursive --exit'
     }
-  };
+  }
 
-  return pkg;
-};
+  return pkg
+}

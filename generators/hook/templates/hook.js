@@ -3,6 +3,6 @@
 
 module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
   return context => {
-    return Promise.resolve(context);
-  };
-};
+    return Promise.resolve(context)
+  }
+}
