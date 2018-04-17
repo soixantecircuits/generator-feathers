@@ -2,9 +2,10 @@
 // See https://github.com/winstonjs/winston for documentation
 // about the logger.
 const logger = require('winston')
+const settings = require('standard-settings').getSettings()
 
 // To see more detailed messages, uncomment the following line:
-// logger.level = 'debug'
+logger.level = settings.logger.level
 
 module.exports = function () {
   return context => {
