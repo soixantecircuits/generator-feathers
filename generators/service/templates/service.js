@@ -2,10 +2,11 @@
 const createService = require('<%= serviceModule %>')<% if(modelName) { %>
 const createModel = require('../../models/<%= modelName %>')<% } %>
 const hooks = require('./<%= kebabName %>.hooks')
+const settings = require('standard-settings').getSettings()
 
 module.exports = function (app) {
   <% if (modelName) { %>const Model = createModel(app)<% } %>
-  const paginate = app.get('paginate')
+  const paginate = settings.paginate
 
   const options = {
     name: '<%= kebabName %>',<% if (modelName) { %>

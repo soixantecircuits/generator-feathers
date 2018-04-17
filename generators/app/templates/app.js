@@ -14,6 +14,7 @@ const middleware = require('./middleware')
 const services = require('./services')
 const appHooks = require('./app.hooks')
 const channels = require('./channels')
+const settings = require('standard-settings').getSettings()
 
 const app = express(feathers())
 
@@ -25,9 +26,9 @@ app.use(helmet())
 app.use(compress())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(favicon(path.join(app.get('public'), 'favicon.ico')))
+app.use(favicon(path.join(settings.folder.public, 'favicon.ico')))
 // Host the public folder
-app.use('/', express.static(app.get('public')))
+app.use('/', express.static(settings.folder.public))
 
 // Set up Plugins and providers
 <% if (hasProvider('rest')) { %>app.configure(express.rest())<% } %>

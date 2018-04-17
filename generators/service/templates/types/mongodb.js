@@ -1,9 +1,10 @@
 // Initializes the `<%= name %>` service on path `/<%= path %>`
 const createService = require('feathers-mongodb')
+const settings = require('standard-settings').getSettings()
 const hooks = require('./<%= kebabName %>.hooks')
 
 module.exports = function (app) {
-  const paginate = app.get('paginate')
+  const paginate = settings.paginate
   const mongoClient = app.get('mongoClient')
   const options = { paginate }
 

@@ -1,0 +1,77 @@
+{
+  "server": {
+    "host": "localhost",
+    "port": 37210
+  },
+  "service": {
+    "spacebro":{
+      "host": "spacebro.space",
+      "port": 3333,
+      "channelName": "media-stream",
+      "client": {
+        "name": "<%= name %>",
+        "description": "<%= description %>",
+        "in": {
+          "service::create": {
+            "eventName": "service::create",
+            "description": "Create service item",
+            "type": "all"
+          },
+          "service::update": {
+            "eventName": "service::update",
+            "description": "Update service ",
+            "type": "all"
+          },
+          "service::patch": {
+            "eventName": "service::patch",
+            "description": "Patch service ",
+            "type": "all"
+          },
+          "service::delete": {
+            "eventName": "service::delete",
+            "description": "Delete service ",
+            "type": "all"
+          },
+          "service::find": {
+            "eventName": "service::find",
+            "description": "Query service ",
+            "type": "all"
+          }
+        },
+        "out": {
+          "service created": {
+            "eventName": "service created",
+            "description": "New service created ",
+            "type": "all"
+          },
+          "service updated": {
+            "eventName": "service updated",
+            "description": "service updated ",
+            "type": "all"
+          },
+          "service patched": {
+            "eventName": "service patched",
+            "description": "service patched ",
+            "type": "all"
+          },
+          "service removed": {
+            "eventName": "service removed",
+            "description": "service removed ",
+            "type": "all"
+          }
+        }
+      }
+    }
+  },
+  "folder":{
+    "public": "./public/"
+  },
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "mongodb": "mongodb://localhost:27017/<%= name %>",
+  "logger": {
+    "level": "debug"
+  }
+}

@@ -14,6 +14,7 @@ module.exports = class AppGenerator extends Generator {
     }
 
     this.dependencies = [
+      'standard-settings',
       '@feathersjs/feathers',
       '@feathersjs/errors',
       '@feathersjs/configuration',
@@ -139,6 +140,12 @@ module.exports = class AppGenerator extends Generator {
     this.fs.copyTpl(
       this.templatePath('README.md'),
       this.destinationPath('', 'README.md'),
+      context
+    )
+
+    this.fs.copyTpl(
+      this.templatePath('settings/settings.default.json'),
+      this.destinationPath('settings/', 'settings.default.json'),
       context
     )
 

@@ -3,10 +3,11 @@ const assert = require('assert')
 const rp = require('request-promise')
 const url = require('url')
 const app = require('../<%= src %>/app')
+const settings = require('standard-settings').getSettings()
 
-const port = app.get('port') || 3030
+const port = settings.server.port
 const getUrl = pathname => url.format({
-  hostname: app.get('host') || 'localhost',
+  hostname: settings.server.host,
   protocol: 'http',
   port,
   pathname
