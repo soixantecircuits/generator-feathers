@@ -15,6 +15,7 @@ module.exports = class AppGenerator extends Generator {
 
     this.dependencies = [
       'standard-settings',
+      'spacebro-client',
       '@feathersjs/feathers',
       '@feathersjs/errors',
       '@feathersjs/configuration',

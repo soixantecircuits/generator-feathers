@@ -9,6 +9,7 @@ const feathers = require('@feathersjs/feathers')
 const configuration = require('@feathersjs/configuration')
 const express = require('@feathersjs/express')
 <% if (hasProvider('socketio')) { %>const socketio = require('@feathersjs/socketio')<% } %>
+<% if (hasProvider('socketio')) { %>require('./spacebro')()<% } %>
 <% if (hasProvider('primus')) { %>const primus = require('@feathersjs/primus')<% } %>
 const middleware = require('./middleware')
 const services = require('./services')
