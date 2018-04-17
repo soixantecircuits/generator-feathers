@@ -31,8 +31,9 @@ module.exports = function (generator) {
     'scripts': {
       test: `${packager} run eslint && ${packager} run mocha`,
       eslint: `eslint ${lib}/. test/. --config .eslintrc.json`,
-      start: `node ${lib}/`,
-      mocha: 'mocha test/ --recursive --exit'
+      start: `SUPPRESS_NO_CONFIG_WARNING=1 node ${lib}/`,
+      dev: `SUPPRESS_NO_CONFIG_WARNING=1 node ${lib}/watch.js`,
+      mocha: 'SUPPRESS_NO_CONFIG_WARNING=1 mocha test/ --recursive --exit'
     }
   }
 
