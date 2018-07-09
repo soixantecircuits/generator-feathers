@@ -29,6 +29,7 @@ module.exports = class AppGenerator extends Generator {
 
     this.devDependencies = [
       'chokidar',
+      'nodemon',
       'invalidate-module',
       'eslint',
       'eslint-config-standard',
