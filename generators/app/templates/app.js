@@ -3,7 +3,6 @@ const favicon = require('serve-favicon')
 const compress = require('compression')
 const cors = require('cors')
 const helmet = require('helmet')
-const logger = require('winston')
 
 const feathers = require('@feathersjs/feathers')
 const configuration = require('@feathersjs/configuration')
@@ -18,7 +17,18 @@ const channels = require('./channels')
 const settings = require('standard-settings').getSettings()
 
 const app = express(feathers())
-
+const winston = require('winston')
+const logger = winston.createLogger({
+  level: settings.logger.level,
+  format: winston.format.combine(
+    winston.format.colorize({ all: true }),
+    winston.format.splat(),
+    winston.format.simple()
+  ),
+  transports: [
+    new winston.transports.Console()
+  ]
+})
 // Load app configuration
 app.configure(configuration())
 // Enable CORS, security, compression, favicon and body parsing
